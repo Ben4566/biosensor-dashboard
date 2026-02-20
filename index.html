@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Biosensor Data Analysis</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9fafb;
+        }
+        .question-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        h1 { color: #111; text-align: center; margin-bottom: 50px; }
+        h2 { color: #2563eb; margin-top: 0; }
+        .chart-container {
+            margin-top: 20px;
+            overflow-x: auto; /* Falls der Bildschirm zu klein wird */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Projekt-Portfolio: Biosensor-Datenanalyse</h1>
+
+    <div class="question-section">
+        <h2>Frage 1: Wie aktiv war die Person im Tagesverlauf?</h2>
+        <p>Die folgenden Diagramme zeigen die rohen Sensordaten über die Zeit. Klicke auf einen Zeitpunkt, um die Werte über alle Kategorien hinweg zu synchronisieren.</p>
+        
+        <div class="chart-container">
+            <svg id="overview_chart" width="1000" height="400"></svg>
+        </div>
+    </div>
+
+    <div class="question-section">
+        <h2>Frage 2: Wie fit ist die Person (Korrelation Schritte vs. Herzfrequenz)?</h2>
+        <p>Hier untersuchen wir die physiologische Belastung. Aktiviere die Trendline und Benchmarks, um zu sehen, ob die Herzfrequenz bei hoher Schrittzahl im athletischen oder durchschnittlichen Bereich bleibt.</p>
+        
+        <div id="valueSelection" style="margin-bottom: 20px;"></div>
+        
+        <div class="chart-container">
+            <svg id="hr_steps_svg" width="1100" height="580"></svg>
+        </div>
+    </div>
+
+    <script src="js/visualization_overview.js"></script>
+    <script>
+        // Kleiner Fix: Dein zweites Skript sucht generisch nach "svg". 
+        // Wir ändern das im DOM kurz, damit es das richtige SVG für Chart 2 nimmt.
+        const originalSelect = d3.select;
+        d3.select = function(selector) {
+            if (selector === "svg") return originalSelect.call(this, "#hr_steps_svg");
+            return originalSelect.call(this, selector);
+        };
+    </script>
+    <script src="js/visualization_hr_steps.js"></script>
+
+</body>
+</html>
