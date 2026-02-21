@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,40 +16,67 @@
             padding: 40px 20px;
             background-color: #f9fafb;
         }
+
         .question-section {
             background: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             margin-bottom: 40px;
         }
-        h1 { color: #111; text-align: center; margin-bottom: 50px; }
-        h2 { color: #2563eb; margin-top: 0; }
+
+        h1 {
+            color: #111;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            color: #2563eb;
+            margin-top: 0;
+        }
+
         .chart-container {
             margin-top: 20px;
-            overflow-x: auto; /* Falls der Bildschirm zu klein wird */
+            overflow-x: auto;
+            /* Falls der Bildschirm zu klein wird */
         }
     </style>
 </head>
+
 <body>
 
-    <h1>Projekt-Portfolio: Biosensor-Datenanalyse</h1>
+    <h1>Data Portfolio: Biosensor Analytics</h1>
 
     <div class="question-section">
-        <h2>Frage 1: Wie aktiv war die Person im Tagesverlauf?</h2>
-        <p>Die folgenden Diagramme zeigen die rohen Sensordaten über die Zeit. Klicke auf einen Zeitpunkt, um die Werte über alle Kategorien hinweg zu synchronisieren.</p>
-        
+        <h2>1. Daily Activity & Physiological Overview</h2>
+        <p>
+            This dashboard provides a <strong>Small Multiples</strong> overview of aggregated daily metrics.
+            It visualizes the interplay between movement (Steps), metabolic output (Calories), and physiological
+            response
+            (Heart Rate, Temperature).
+            <br><br>
+        </p>
+
         <div class="chart-container">
             <svg id="overview_chart" width="1000" height="400"></svg>
         </div>
     </div>
 
     <div class="question-section">
-        <h2>Frage 2: Wie fit ist die Person (Korrelation Schritte vs. Herzfrequenz)?</h2>
-        <p>Hier untersuchen wir die physiologische Belastung. Aktiviere die Trendline und Benchmarks, um zu sehen, ob die Herzfrequenz bei hoher Schrittzahl im athletischen oder durchschnittlichen Bereich bleibt.</p>
-        
+        <h2>2. Fitness Assessment: Heart Rate vs. Step Correlation</h2>
+        <p>
+            This visualization analyzes <strong>cardiovascular efficiency</strong> by correlating physical
+            exertion (Steps) with Heart Rate (HR). By comparing the user's data against established
+            physiological benchmarks, we can assess whether the heart rate remains within an athletic
+            or average range during high-intensity intervals.
+            <br><br>
+            <strong>Tools:</strong> Use the <strong>Heatmap</strong> to see density and calorie intensity,
+            or activate <strong>Benchmarks</strong> to evaluate fitness levels (Athletic vs. Unsporty).
+        </p>
+
         <div id="valueSelection" style="margin-bottom: 20px;"></div>
-        
+
         <div class="chart-container">
             <svg id="hr_steps_svg" width="1100" height="580"></svg>
         </div>
@@ -58,4 +86,5 @@
     <script type="module" src="js/visualization_hr_steps.js"></script>
 
 </body>
+
 </html>

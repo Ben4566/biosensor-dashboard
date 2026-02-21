@@ -132,6 +132,7 @@ d3.csv("/data/biosensors.csv").then(data => {
  .on("click", function (event) {
     if (window.showMaxCalories) return;
 
+    /** Old legacy code for a navigation to a diffrent site 
     // ---------------------------------------------------------
     // 1. Temporal Resolution (X-Axis Lookup)
     // ---------------------------------------------------------
@@ -188,6 +189,7 @@ d3.csv("/data/biosensors.csv").then(data => {
     // 4. Navigation
     // ---------------------------------------------------------
     window.location.href = "pattern.html";
+    */
 });
 
     // --- BUTTON EVENT LISTENER ---
