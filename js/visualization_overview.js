@@ -39,7 +39,7 @@ const dateLegend = legendGroup.append("text")
     .style("font-weight", "bold")
     .text("Date: --");
 
-d3.csv("data/biosensors.csv").then(data => {
+d3.csv("/data/biosensors.csv").then(data => {
 
     // Data Processing
     data.forEach(d => {

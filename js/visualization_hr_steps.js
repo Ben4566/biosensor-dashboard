@@ -20,7 +20,7 @@ const PHYSIO_LIMITS = {
 };
 
 // Clear previous SVG elements and tooltips to allow re-running the script
-d3.select("svg").selectAll("*").remove();
+d3.select("#hr_steps_svg").selectAll("*").remove();
 d3.select(".tooltip").remove();
 
 // Initialize a shared tooltip div (hidden by default)
@@ -37,7 +37,7 @@ const tooltip = d3.select("body").append("div")
     .style("z-index", "10");
 
 // Create the main SVG container and group
-let svg = d3.select("svg")
+let svg = d3.select("#hr_steps_svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight)
     .append("g")

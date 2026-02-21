@@ -54,17 +54,8 @@
         </div>
     </div>
 
-    <script src="js/visualization_overview.js"></script>
-    <script>
-        // Kleiner Fix: Dein zweites Skript sucht generisch nach "svg". 
-        // Wir ändern das im DOM kurz, damit es das richtige SVG für Chart 2 nimmt.
-        const originalSelect = d3.select;
-        d3.select = function(selector) {
-            if (selector === "svg") return originalSelect.call(this, "#hr_steps_svg");
-            return originalSelect.call(this, selector);
-        };
-    </script>
-    <script src="js/visualization_hr_steps.js"></script>
+    <script type="module" src="js/visualization_overview.js"></script>
+    <script type="module" src="js/visualization_hr_steps.js"></script>
 
 </body>
 </html>
